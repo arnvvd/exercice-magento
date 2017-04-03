@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<widgets>
+  <divatools_uid_ban type="tools/ban" translate="divatools_uid_ban_desc" module="tools"><!-- donc Diva/Tools/Blocks/Ban.php -->
+    <name>Cocogin Banner</name>
+    <description>Choose between the different banner available (Contacts, social links, enquiry, chat...)</description>
+    <parameters>
+      <diva_widget_options>
+        <source_model>tools/widgetType</source_model><!-- donc Diva/Tools/Model/WidgetType.php -->
+        <label>Banner option</label>
+        <required>1</required>
+        <visible>1</visible>
+        <type>multiselect</type>
+      </diva_widget_options>
+      <diva_widget_title>
+        <source_model>tools/widgetType</source_model><!-- donc Diva/Tools/Model/WidgetType.php -->
+        <label>Banner title</label>
+        <required>0</required>
+        <visible>1</visible>
+        <type>text</type>
+      </diva_widget_title>
+      <diva_widget_desc>
+        <source_model>tools/widgetType</source_model><!-- donc Diva/Tools/Model/WidgetType.php -->
+        <label>Banner description</label>
+        <required>0</required>
+        <visible>1</visible>
+        <type>text</type>
+      </diva_widget_desc>
+      <diva_widget_link>
+        <source_model>tools/widgetType</source_model><!-- donc Diva/Tools/Model/WidgetType.php -->
+        <label>Banner link</label>
+        <required>0</required>
+        <visible>1</visible>
+        <type>text</type>
+      </diva_widget_link>
+    </parameters>
+  </divatools_uid_ban>
+</widgets>

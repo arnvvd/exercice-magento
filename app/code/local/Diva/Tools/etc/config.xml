@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Diva_Tools>
+      <version>0.1.1</version>
+    </Diva_Tools>
+  </modules>
+  <global>
+    <helpers>
+      <tools>
+        <class>Diva_Tools_Helper</class><!-- just for translation to work properly -->
+      </tools>
+    </helpers>
+    <blocks>
+      <tools>
+        <class>Diva_Tools_Block</class>
+      </tools>
+    </blocks>
+    <models>
+      <tools>
+        <class>Diva_Tools_Model</class>
+      </tools>
+    </models>
+    <page>
+     <layouts>
+        <homepage translate="label">
+           <label>Diva_home</label>
+           <template>page/homepage.phtml</template>
+           <layout_handle>home_page</layout_handle>
+        </homepage>
+        <ou translate="label">
+           <label>Diva_ou</label>
+           <template>page/ou.phtml</template>
+           <layout_handle>ou</layout_handle>
+        </ou>
+      </layouts>
+    </page>
+  </global>
+</config>

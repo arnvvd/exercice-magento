@@ -1,0 +1,71 @@
+<div class="diva_head">
+
+    <?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = Mage::registry('current_category'); // Voir le controlleur ($_category = $this->getCurrentCategory()) //ou $_category = Mage::getModel('catalog/category')->load($this->getCategoryId()); // selon les methodes
+    $_imgHtml   = '';
+    $_imgUrl = $_category->getImageUrl();
+    $titleClass = '';
+    if($_imgUrl){
+        $_imgHtml = '<div class="header-img"><img src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" /></div>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }else{
+        $_imgHtml = '<div class="header-img empty"></div>';
+        $titleClass = 'empty';
+    }
+    echo $_imgHtml;
+
+    ?>
+
+    <div class="page-title category-title <?= $titleClass ?>">
+        
+         <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1> 
+
+        <?php //if($_description=$this->getCurrentCategory()->getDescription()): ?>
+            <div class="category-description std">
+                <?php //echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+                <?php if (!Mage::registry('current_category')) return ?>
+                <?php $_categories = $this->getCurrentChildCategories() ?>
+                <?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+                <?php if($_count): ?>
+                <div class="diva_head_subcat">
+                    <div class="subcat_container">
+                        <dl>
+                            <ol>
+                            <?php foreach ($_categories as $_category): ?>
+                                <?php if($_category->getIsActive()): ?>
+                                <li>
+                                    <a href="<?php echo $this->getCategoryUrl($_category) ?>"<?php if ($this->isCategoryActive($_category)): ?> class="current"<?php endif; ?>>
+                                        <?php echo $this->escapeHtml($_category->getName()) ?>
+                                        <span class="count">(<?php echo $_category->getProductCount() ?>)</span>
+                                        <?php
+                                        $_imgHtml   = '';
+                                        if ($_imgUrl = $_category->getImageUrl()) {
+                                            $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
+                                            $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+                                        }
+                                        ?>
+                                        <?= $_imgHtml ?>
+                                    </a>
+                                </li>
+                                <?php endif; ?>
+                            <?php endforeach ?>
+                            </ol>
+                    </div>
+                </div>
+                <?php endif; ?>
+            </div>
+        <?php //endif; ?>
+
+        <?php //echo $this->getChildHtml('custom_subcat'); ?>
+
+
+
+       
+
+
+
+
+    </div>
+
+</div>

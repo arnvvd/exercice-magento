@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Diva_Handle>
+      <version>0.1.1</version>
+    </Diva_Handle>
+  </modules>
+	<frontend>
+		<routers>
+		    <unique_name_divaHandle>
+			<use>standard</use>
+			<args>
+			    <module>Diva_Handle</module>
+			    <frontName>url_test</frontName>
+			</args>
+		    </unique_name_divaHandle>
+		</routers>    
+	</frontend>
+</config>
