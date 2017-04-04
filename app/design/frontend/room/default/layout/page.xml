@@ -106,6 +106,10 @@ Default layout, loads most of the pages
                 <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/>
             </block>
 
+            <block type="cms/block" name="home_header" after="footer_links2">
+                <action method="setBlockId"><block_id>home_header</block_id></action>
+            </block>
+
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>
                 <block type="page/html_cookieNotice" name="global_cookie_notice" as ="global_cookie_notice" template="page/html/cookienotice.phtml" before="-" />
