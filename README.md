@@ -25,7 +25,7 @@ Before you really begin, you'll need to configure your database connection infor
 ### and then...
 - Import the `./magento.sql` in your Phpmyadmin   
 - Change in the databases in the `magev1_core_config_data` table the lines `web/unsecure/base_url` and `web/secure/base_url`
-- Enjoy
+- Launch webpack [(view section)](#webpack)
 
 ## About Server
 ADDRESS ID: 5.44.25.230  
@@ -45,6 +45,17 @@ MDP: poneyponeymysql
 http://5.44.25.230/mageadmin  
 username: poney  
 password: hetichetic1
+
+## Webpack
+Install NPM
+```bash
+$ npm install 
+```
+
+Launch webpack server
+```bash
+$ npm run build 
+```
 
 ## Our Team
 - Lisa

@@ -55,24 +55,15 @@
 
 <div class="wrapper">
     <div class="page">
-        
         <div class="main-container col1-layout">
             <div class="main">
                 <div class="col-main">
                     <?php echo $this->getChildHtml('content') ?>
-                    
                 </div>
             </div>
         </div>
 
-        <?php 
-        $slider_footer = $this->getChildHtml('slider_footer');
-        if($slider_footer) : ?>
-            <div class="slider_footer"><?php echo $slider_footer; ?></div>  
-        <?php endif; ?>
-        <?php echo $this->getChildHtml('footer_before') ?>
         <div class="grey-foot">
-            <?php echo $this->getChildHtml('footer') ?>
             <div class="before_body_end"><?php echo $this->getChildHtml('before_body_end') ?></div>
             <div class="cookie_body_end"><?php echo $this->getChildHtml('cookie_body_end') ?></div>
         </div>
