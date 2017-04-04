@@ -32,7 +32,7 @@ Default layout, loads most of the pages
 
     <default translate="label" module="page">
         <label>All Pages</label>
-        <block type="page/html" name="root" output="toHtml" template="page/3columns.phtml">
+        <block type="page/html" name="root" output="toHtml">
 
             <block type="page/html_head" name="head" as="head">
                 <action method="addJs"><script>prototype/prototype.js</script></action>
@@ -73,6 +73,9 @@ Default layout, loads most of the pages
                     <label>Navigation Bar</label>
                     <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
                 </block>
+                <block type="cms/block" name="home_header">
+                    <action method="setBlockId"><block_id>home_header</block_id></action>
+                </block>
                 <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
@@ -106,10 +109,6 @@ Default layout, loads most of the pages
                 <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/>
             </block>
 
-            <block type="cms/block" name="home_header" after="footer_links2">
-                <action method="setBlockId"><block_id>home_header</block_id></action>
-            </block>
-
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>
                 <block type="page/html_cookieNotice" name="global_cookie_notice" as ="global_cookie_notice" template="page/html/cookienotice.phtml" before="-" />
@@ -117,6 +116,9 @@ Default layout, loads most of the pages
         </block>
 
         <block type="core/profiler" output="toHtml" name="core_profiler"/>
+
+
+
     </default>
 
     <print translate="label" module="page">

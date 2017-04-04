@@ -6,7 +6,7 @@ module.exports = {
     entry: ['./js/main.js', './sass/main.scss'],
 	output: {
 		path: path.resolve(__dirname, 'skin/frontend/room/default/'),
-		filename: './bundle.js'
+		filename: './js/bundle.js'
     },
 	module: {
 		rules: [

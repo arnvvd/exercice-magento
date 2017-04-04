@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-  <modules>
-    <Diva_Adminpanel>
-      <active>true</active>
-      <codePool>local</codePool>
-    </Diva_Adminpanel>
-  </modules>
-</config>

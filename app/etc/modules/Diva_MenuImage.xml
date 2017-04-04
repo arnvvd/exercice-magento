@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<modules>
-		<Diva_MenuImage>
-			<active>true</active>
-			<codePool>local</codePool>
-		</Diva_MenuImage>
-	</modules>
-</config>

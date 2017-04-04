@@ -27,6 +27,8 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+
+
 <div class="header-container">
     <div class="header">
         <?php if ($this->getIsHomePage()):?>
@@ -37,4 +39,12 @@
 
         <?php echo $this->getChildHtml('topContainer'); ?>
     </div>
+</div>
+
+<div class="navbar">
+    <?php echo $this->getChildHtml('topMenu') ?>
+</div>
+
+<div class="home_slider">
+    <?php echo $this->getChildHtml('home_header') ?>
 </div>
