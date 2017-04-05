@@ -1,0 +1,11 @@
+.introduce{
+  padding: 10rem 0;
+
+  &_text{
+    font-family: $font-regular;
+    font-size: 1.5rem;
+    line-height: 1.67;
+    text-align: center;
+    color: #858585;
+  }
+}

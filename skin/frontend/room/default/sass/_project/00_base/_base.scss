@@ -1,0 +1,106 @@
+/* # Base */
+
+/*****************/
+/******HTML5 Elements*****/
+/*****************/
+
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+html {
+	font-size: 62.5%;
+	position: relative;
+  -webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: $font-regular;
+}
+
+*,
+*::before,
+*::after {
+    background-repeat: no-repeat;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+}
+
+
+p {
+	margin:0;
+}
+
+
+svg,
+img {
+	width: 100%;
+	max-width:100%;
+}
+
+
+ul {
+	margin:0;
+	padding:0;
+}
+
+
+li {
+	list-style: none
+}
+
+
+a {
+	text-decoration:none;
+	color: inherit;
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+
+blockquote {
+	padding:0;
+	margin:0;
+}
+
+button:focus,
+input:focus {
+	outline:0;
+}
+
+
+
+/*****************/
+/****** USEFUL CLASSES *****/
+/*****************/
+
+.overflow
+{
+	overflow:hidden;
+}
+
+
+.uppercase
+{
+	text-transform:uppercase;
+}
+
+
+.hide-for-viewer
+{
+	@include hide-for-viewer;
+}

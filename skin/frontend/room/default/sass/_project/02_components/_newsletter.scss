@@ -1,0 +1,42 @@
+.newsletter{
+  padding: 6rem 0;
+  background-color: $gray-color;
+  text-align: center;
+
+  &_text{
+    font-size: 1.2rem;
+    color: #797979;
+  }
+
+  &_form{
+    display: table;
+    margin-top: 5rem;
+    height: 5rem;
+    width: 100%;
+    text-align: center;
+
+    input{
+      display: table-cell;
+      height: 100%;
+    }
+
+    input[type='text']{
+      border:none;
+      width: 40%;
+      padding: 1rem;
+      font-family: $font-regular;
+      font-size: 1.4rem;
+    }
+
+    input[type='submit']{
+      border: none;
+      padding: 0 2rem;
+      text-transform: uppercase;
+      background: black;
+      color: white;
+      font-family: "gothamBold", sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .1rem;
+    }
+  }
+}

@@ -33,9 +33,14 @@
 ?>
 <?php $_menu = $this->getHtml('level-top') ?>
 <?php if($_menu): ?>
-<div class="nav-container">
-    <ul id="nav">
+<nav class="main-nav">
+    <ul>
+        <li><a title="Home" href="<?php echo Mage::getUrl('')?>"><?php echo $this->__('Home');?></a></li>
         <?php echo $_menu ?>
+        <li><a title="Contributeur" href="<?php echo Mage::getUrl('')?>"><span><?php echo $this->__('Devenir Contributeur');?></span></a></li>
     </ul>
-</div>
+</nav>
 <?php endif ?>
+
+
+

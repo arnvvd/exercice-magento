@@ -1,0 +1,41 @@
+/* # Buttons */
+button{
+  padding:0;
+  background-color: transparent;
+  margin: 0;
+  border: 0;
+}
+
+.btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  padding: 1.5rem;
+  width: 15rem;
+  @include font-style ($font-bold, 1.2rem, 400, normal, 1);
+  background-color: #000000;
+  color: #fff;
+  transform: color .4s ease-in, background-color .4s ease-in;
+  text-transform: uppercase;
+
+  &:hover{
+    color: #000000;
+    background-color: #fff;
+    transform: color .4s ease-in, background-color .4s ease-in;
+  }
+
+
+  &--clear{
+    color: #000000;
+    background-color: #fff;
+    transform: color .4s ease-in, background-color .4s ease-in;
+
+    &:hover{
+      background-color: #000000;
+      color: #fff;
+      transform: color .4s ease-in, background-color .4s ease-in;
+    }
+  }
+}

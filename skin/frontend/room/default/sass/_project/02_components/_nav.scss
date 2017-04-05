@@ -1,0 +1,132 @@
+/* # Navigation */
+
+.header{
+  // LOGO
+  &-logo{
+    width: 14.5rem;
+  }
+
+  //NAV
+  &-nav{
+    padding-top: 2rem;
+    width: 100%;
+    @include font-style ($font-regular, 1.2rem, 400, normal, 22/12);
+    text-transform: uppercase;
+
+    &-wrapper{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 128rem;
+      padding: 0 8rem;
+      margin: 0 auto;
+      z-index: 1;
+      color: #fff;
+
+      &:after{
+        content:'';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: calc(100% - 16rem);
+        height: 1px;
+        background-color: #fff;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+//UTILS
+.main-utils{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  &:before{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content:'';
+    width: 100%;
+    height: 1px;
+    background-color: #FFF;
+  }
+
+  .site-utils,
+  .user-utils{
+    border-top: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+
+    span{
+      background: white;
+      color: black;
+      padding: .2rem .5rem;
+      margin-left: .5rem;
+    }
+
+    li{
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 3rem;
+      text-align: center;
+      &:after{
+        content:'';
+        position: absolute;
+        top: 0;
+        right:0;
+        width: 1px;
+        height: 100%;
+        background-color: #fff;
+      }
+
+      &:last-child{
+        &:after{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .user-utils{
+    li{
+      width: 15rem;
+    }
+  }
+
+  .site-utils{
+    li{
+      width: 3rem;
+    }
+  }
+}
+
+//MAIN NAVIGATION
+.main-nav{
+  border-left: 1px solid #FFF;
+  border-right: 1px solid #FFF;
+  text-align: center;
+  padding: 1rem 4rem;
+  ul{
+    display: inline-block;
+  }
+  li{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 3.5rem;
+    &:first-child{
+      padding: 0 3.5rem 0 0;
+    }
+    &:last-child{
+      padding:0 0 0 3.5rem;
+    }
+  }
+}

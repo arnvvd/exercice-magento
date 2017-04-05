@@ -1,45 +1,49 @@
-/* # Import config */
-@import '_config/config';
+/*****************/
+/****** _Config *****/
+/*****************/
 
-/* # Import bookstores */
-@import '_config/sass-mq/mq.scss';
+/* # Config */
+@import '_config/_config.scss';
 
-/* # Import utilities */
-@import '_config/functions';
-@import '_config/mixins';
+/* # Sass plugins */
+@import '_config/_normalize.scss'; //Normalize
+@import '_config/sass-mq/_mq.scss'; //MQ
 
-/* # Import plugins */
-@import '_project/plugins/flickity';
+/* # Utilities */
+@import '_config/_mixins.scss';
 
-/* # Import fonts */
-@import '_project/fonts/fonts';
 
-/* # Imports des utilitaires (préfixés)
-Il est possible de sortir de cette encapsulation avec `@at-root{}`.
-*/
+/*****************/
+/****** _Project *****/
+/*****************/
 
-/* # Import base */
-@import '_project/base/base';
-@import '_project/base/text';
+/* # Base */
+@import '_project/00_base/_fonts-mixins.scss';
+@import "_project/00_base/_base.scss";
+@import "_project/00_base/_text.scss";
 
-/* # Import Layouts */
-@import '_project/layout/footer';
-@import '_project/layout/header';
-@import '_project/layout/layout';
-@import '_project/layout/nav';
-@import '_project/layout/bootstrap/grid-framework';
-@import '_project/layout/bootstrap/grid';
-@import '_project/layout/bootstrap/gridcontainer';
+/* # Atoms */
+@import "_project/01_atoms/_buttons.scss";
 
-/* # Imports components */
-@import '_project/components/buttons';
-@import '_project/components/forms';
-@import '_project/components/icons';
-@import '_project/components/links';
-@import '_project/components/title';
+/* # Components */
+@import "_project/02_components/_flickity.scss";
+@import "_project/02_components/_nav.scss";
+@import "_project/02_components/_introduce.scss";
+@import "_project/02_components/_footer.scss";
+@import "_project/02_components/_selection.scss";
+@import "_project/02_components/_newsletter.scss";
 
-/* # Import page's layouts */
-@import '_project/pages/homepage';
+/* # Layout */
+@import "_project/03_layout/_header.scss";
+@import "_project/03_layout/_layout.scss";
 
-/* # Import styles for experiences */
-//@import '_project/shame/*';
+/* # Bootstrap */
+@import '_project/03_layout/bootstrap/grid-framework';
+@import '_project/03_layout/bootstrap/grid';
+@import '_project/03_layout/bootstrap/gridcontainer';
+
+/* # Pages */
+@import "_project/04_pages/_index.scss";
+
+
+

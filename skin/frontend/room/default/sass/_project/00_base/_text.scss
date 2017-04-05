@@ -1,0 +1,26 @@
+.title{
+	&-beta{
+		@include font-style ($font-bold, 4rem, 400, normal, 1.2);
+	}
+
+	&_section{
+		text-transform: uppercase;
+		font-family: $font-bold;
+		font-size: 3.5rem;
+		text-align: center;
+		margin-bottom: 2rem;
+		color: $title-color;
+
+		&--newsletter{
+			text-transform: initial;
+			font-family: $font-regular;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.paragraph{
+	&-beta{
+		@include font-style ($font-regular, 1.5rem, 400, normal, 1.6);
+	}
+}

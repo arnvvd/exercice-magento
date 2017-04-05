@@ -28,23 +28,167 @@
  */
 ?>
 
+<?php
+if($this->getIsHomePage()) {
+?>
+<header class='header'>
+    <div class="header-nav-wrapper">
+        <div class="header-logo">
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">Logo</a>
+        </div>
+        <div class="header-nav">
+            <div class="main-utils">
+                <ul class="site-utils">
+                    <li>FR</li>
+                    <li>E</li>
+                    <li>R</li>
+                </ul>
 
-<div class="header-container">
-    <div class="header">
-        <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-        <?php else:?>
-        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-        <?php endif?>
+                <?php echo $this->getChildHtml('topLinks') ?>
 
-        <?php echo $this->getChildHtml('topContainer'); ?>
+            </div>
+            <?php echo $this->getChildHtml('topMenu') ?>
+        </div>
     </div>
-</div>
 
-<div class="navbar">
-    <?php echo $this->getChildHtml('topMenu') ?>
-</div>
+    <ul class="main-carousel">
+        <li class="main-carousel-cell">
+            <div class="main-carousel-image" style="background-image: url('<?php echo $this->getSkinUrl('images/room1.jpg'); ?>')">&nbsp;</div>
+            <!--            src="{{skin url=images/banner1.jpg}}"-->
+        </li>
+        <li class="main-carousel-cell">
+            <div class="main-carousel-image" style="background-image: url('<?php echo $this->getSkinUrl('images/room2.jpg'); ?>')">&nbsp;</div>
+        </li>
+        <li class="main-carousel-cell">
+            <div class="main-carousel-image" style="background-image: url('<?php echo $this->getSkinUrl('images/room3.jpg'); ?>')">&nbsp;</div>
+        </li>
+    </ul>
 
-<div class="home_slider">
-    <?php echo $this->getChildHtml('home_header') ?>
-</div>
+    <div class="title-carousel-wrapper">
+        <ul class="title-carousel">
+            <li class="title-carousel-cell">
+                <h3 class="title-beta">Room Coconing</h3>
+                <p class="paragraph-beta">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                <a class="btn btn--clear" href="#">>Voir la room</a>
+            </li>
+            <li class="title-carousel-cell">
+                <h3 class="title-beta">Room De Merde</h3>
+                <p class="paragraph-beta">Sed quia non numquam eius modi tempora incidunt  aliquam quaerat voluptatem.</p>
+                <a class="btn btn--clear" href="#">>Voir la room</a>
+            </li>
+            <li class="title-carousel-cell">
+                <h3 class="title-beta">Room De la mort qui défonce toujours tout</h3>
+                <p class="paragraph-beta">Sed quia nocidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                <a class="btn btn--clear" href="#">>Voir la room</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="desc-carousel-wrapper">
+        <ul class="desc-carousel">
+            <li class="desc-carousel-cell">
+                <ul>
+                    <li>
+                        <div>
+                            style
+                            <span>barroque</span>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div>
+                            superficie
+                            <span>114 m2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            nombre de produits
+                            <span>8 produits</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            contributeur
+                            <span>john doe</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="desc-carousel-cell">
+                <ul>
+                    <li>
+                        <div>
+                            style
+                            <span>barroque</span>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div>
+                            superficie
+                            <span>114 m2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            nombre de produits
+                            <span>8 produits</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            contributeur
+                            <span>john doe</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="desc-carousel-cell">
+                <ul>
+                    <li>
+                        <div>
+                            style
+                            <span>barroque</span>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div>
+                            superficie
+                            <span>114 m2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            nombre de produits
+                            <span>8 produits</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            contributeur
+                            <span>john doe</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<?php
+} else {
+    echo 'You are NOT in Homepage!';
+}
+?>
+
+
+<!--<div class="navbar">-->
+<!--    <div class="quick-access">-->
+<!--        --><?php //echo $this->getChildHtml('topSearch') ?>
+<!--        --><?php //echo $this->getChildHtml('topLinks') ?>
+<!--        --><?php //echo $this->getChildHtml('store_language') ?>
+<!--    </div>-->
+<!--    --><?php //echo $this->getChildHtml('topMenu') ?>
+<!--</div>-->
+<!---->

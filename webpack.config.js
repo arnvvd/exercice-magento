@@ -44,8 +44,7 @@ module.exports = {
 	},
     resolve: {
         alias: {
-            'components': path.resolve(__dirname, 'src/components'),
-            'core': path.resolve(__dirname, 'src/core'),
+            'components': path.resolve(__dirname, 'skin/frontend/room/default/js/modules')
         },
         extensions: [
             '.js',

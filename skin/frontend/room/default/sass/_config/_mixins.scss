@@ -1,4 +1,4 @@
-/* # Rétablissement du flux */
+/* # Clearfix */
 
 /*
 http://nicolasgallagher.com/micro-clearfix-hack/
@@ -20,7 +20,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   }
 }
 
-/* # _Reset_ (et sa version surchargée) */
+/* # _Reset_  */
 
 @mixin reset
 {
@@ -49,6 +49,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 }
 
 /*
+Accessibility hidden
 https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
 */
 
@@ -65,36 +66,7 @@ https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-5
 }
 
 
-
-/* # Survol des liens */
-
-/* Pas de soulignement par défaut, puis soulignement au survol ou au focus. */
-
-@mixin deco-roll
-{
-  text-decoration: none;
-
-  &:hover,
-  &:focus
-  {
-    text-decoration: underline;
-  }
-}
-
-/* Ou soulignement par défaut, puis pas de soulignement au survol ou au focus. */
-
-@mixin deco-unroll
-{
-  text-decoration: underline;
-
-  &:hover,
-  &:focus
-  {
-    text-decoration: none;
-  }
-}
-
-/* # Étirement des blocs */
+/* # block stretching */
 
 @mixin stretch($length: 0)
 {
@@ -108,18 +80,6 @@ https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-5
 }
 
 
-
-/* # Utilitaire pour la fonction calc() */
-
-@mixin calc($property, $expression)
-{
-  #{$property}: -webkit-calc(#{$expression});
-  #{$property}: calc(#{$expression});
-}
-
-
-
-
 // Inline-block bugfix
 // @link http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html
 @mixin no-inline-block-margin()
@@ -128,64 +88,20 @@ https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-5
 
 }
 
-// imports all fonts
-@mixin fonts($path, $fonts, $formats){
-    @each $font in $fonts{
-        @font-face{
-            font-family: "#{$font}";
-            font-weight: normal;
-            @each $type in $formats{
-                @if $type == "eot"{
-                    src: url("#{$path}#{$font}.eot");
-                    src: url("#{$font}.eot?#iefix") format("embedded-opentype") ;
-                }
-                @else if $type == "woff2"{
-                    src: url('#{$path}#{$font}.woff2') format('woff2');
-                }
-                @else if $type == "woff"{
-                    src: url('#{$path}#{$font}.woff') format('woff');
-                }
-                @else if $type == "truetype"{
-                    src: url('#{$path}#{$font}.ttf')  format('truetype');
-                }
-                @else if $type == "svg"{
-                    src: url('#{$path}#{$font}.svg#svgFontName') format('svg');
-                }
-            }
-        };
-    }
-}
 
-// create multi layout with z-index
-@mixin layer($layer){
-    @for $i from 1 through $layer {
-        .layout-#{$i} {
-            position: relative;
-            z-index: #{$i};
-        }
-    }
-}
-
-// Personalize placeholder's inputs
-@mixin placeholderInput() {
-  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    @content;
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
   }
-  &::-moz-placeholder { /* Firefox 19+ */
-    @content;
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
-  &:-ms-input-placeholder { /* IE 10+ */
-    @content;
-  }
-  &:-moz-placeholder { /* Firefox 18- */
-    @content;
-  }
-}
-
-@mixin font($font:$fontPrimary, $size:null, $line_height:null, $color:$colorPrimary, $font_weight:null){
-  font-family: $font;
-  font-size: $size;
-  font-weight: $font_weight;
-  line-height: $line_height;
-  color: $color;
 }

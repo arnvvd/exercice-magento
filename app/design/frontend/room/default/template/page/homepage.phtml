@@ -46,22 +46,163 @@
 
 <?php echo $this->getChildHtml('header') ?>
 
-<div class="wrapper">
-    <div class="page">
-        <div class="main-container col1-layout">
-            <div class="main">
-                <div class="col-main">
-                    <?php echo $this->getChildHtml('content') ?>
-                </div>
+
+<section class="introduce">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <?php echo $this->getChildHtml('home_intro') ?>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="grey-foot">
-            <div class="before_body_end"><?php echo $this->getChildHtml('before_body_end') ?></div>
-            <div class="cookie_body_end"><?php echo $this->getChildHtml('cookie_body_end') ?></div>
+<section class="product-selection-list-wrapper">
+    <div class="centered">
+        <h2 class="title_section">La Sélection</h2>
+        <ul class="product-selection-list">
+            <li>
+                <a href="#" class="content" style="background-image:url('assets/images/product1.png')">
+              <span class="product-selection-header">
+                <p class="product-selection-price">12€</p>
+                <ul class="product-selection-utils">
+                  <li>
+                    <button>
+                      P
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      F
+                    </button>
+                  </li>
+                </ul>
+              </span>
+                    <span class="product-selection-details">
+                <h3 class="title-delta">Nom du produit</h3>
+                <p class="paragraph-delta">Chaise Martin</p>
+              </span>
+                </a>
+            </li>
+            <li>
+                <div class="content product-selection-promo">
+                    <p>Jusqu'au 1er Mai <span class="reduce">-20% </span> Avec le code promo <span class="code">Last-Day*</span></p>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="content" style="background-image:url('assets/images/product2.png')">
+              <span class="product-selection-header">
+                <p class="product-selection-price">12€</p>
+                <ul class="product-selection-utils">
+                  <li>
+                    <button>
+                      P
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      F
+                    </button>
+                  </li>
+                </ul>
+              </span>
+                    <span class="product-selection-details">
+                <h3 class="title-delta">Nom du produit</h3>
+                <p class="paragraph-delta">Canapé Josie</p>
+              </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="content" style="background-image:url('assets/images/product3.png')">
+              <span class="product-selection-header">
+                <p class="product-selection-price">12€</p>
+                <ul class="product-selection-utils">
+                  <li>
+                    <button>
+                      P
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      F
+                    </button>
+                  </li>
+                </ul>
+              </span>
+                    <span class="product-selection-details">
+                <h3 class="title-delta">Nom du produit</h3>
+                <p class="paragraph-delta">Etagère Josie</p>
+              </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="content" style="background-image:url('assets/images/product4.png')">
+              <span class="product-selection-header">
+                <p class="product-selection-price">12€</p>
+                <ul class="product-selection-utils">
+                  <li>
+                    <button>
+                      P
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      F
+                    </button>
+                  </li>
+                </ul>
+              </span>
+                    <span class="product-selection-details">
+                <h3 class="title-delta">Nom du produit</h3>
+                <p class="paragraph-delta">Cousin cousin</p>
+              </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="content" style="background-image:url('assets/images/product5.png')">
+              <span class="product-selection-header">
+                <p class="product-selection-price">12€</p>
+                <ul class="product-selection-utils">
+                  <li>
+                    <button>
+                      P
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      F
+                    </button>
+                  </li>
+                </ul>
+              </span>
+                    <span class="product-selection-details">
+                <h3 class="title-delta">Nom du produit</h3>
+                <p class="paragraph-delta">Tabouret Ray</p>
+              </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+        <?php echo $this->getChildHtml('catalog_category') ?>
+
+<section class="newsletter">
+    <div class="container">
+        <div class="row">
+            <?php echo $this->getChildHtml('home_newsletter') ?>
+
+            <span class="newsletter_form">
+                <input type="text" name="" id="">
+                <input type="submit" value="souscrire">
+            </span>
         </div>
     </div>
-</div>
+</section>
+<?php echo $this->getChildHtml('footer') ?>
+
+
+<script src="<?php echo $this->getSkinUrl('js/bundle.js'); ?>"></script>
 <?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>

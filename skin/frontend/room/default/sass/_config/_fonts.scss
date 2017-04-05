@@ -1,0 +1,19 @@
+/* # Font-face */
+
+// NB: there's no need to call TTF, EOT, nor SVG fonts.
+// cf. https://twitter.com/kReEsTaL/status/644518292581912576
+
+@font-face{
+  font-family : 'gothamBold';
+  src : url('/fonts/Gotham-Bold.otf') format('opentype');
+}
+
+@font-face{
+  font-family : 'gothamMedium';
+  src : url('/fonts/Gotham-Medium.otf') format('opentype');
+}
+
+@font-face{
+  font-family : 'gothamBook';
+  src : url('/fonts/Gotham-Book.otf') format('opentype');
+}

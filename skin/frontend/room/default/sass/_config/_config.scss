@@ -98,17 +98,11 @@ $mq-breakpoints: (
 /****************/
 
 // Fonts
-$font: Work Sans !default;
+$font-regular: 'gothamBook', sans-serif !default;
+$font-medium: 'gothamMedium', sans-serif !default;
+$font-bold: 'gothamBold', sans-serif !default;
 
-// Colors
-$black: #000 !default;
-$white: #fff !default;
-$colorPrimary: #ff35c6;
-$colorGray: #f2f2f2;
-
-// Weight
-$light: 300;
-$regular: 400;
-$medium: 500;
-$semi-bold: 600;
-$bold: 700;
+// Colors : color name OSEF
+$main-color: #000 !default;
+$title-color: #373737 !default;
+$gray-color: #F0F0F0 !default;

@@ -64,7 +64,34 @@ Default layout, loads most of the pages
                 <label>Page Top</label>
             </block>
 
+            <block type="catalog/navigation" name="catalog_category" template="catalog/category/list.phtml">
+                <label>List Category</label>
+            </block>
+
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
+
+            <!--<block type="page/html_header" name="header" as="header">-->
+                <!--<block type="page/template_links" name="top.links" as="topLinks"/>-->
+                <!--<block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>-->
+                <!--<block type="core/text_list" name="top.menu" as="topMenu" translate="label">-->
+                    <!--<label>Navigation Bar</label>-->
+                    <!--<block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>-->
+                <!--</block>-->
+
+                <!--<block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">-->
+                    <!--<label>Page Header</label>-->
+                    <!--<action method="setElementClass"><value>top-container</value></action>-->
+                <!--</block>-->
+                <!--<block type="page/html_welcome" name="welcome" as="welcome"/>-->
+            <!--</block>-->
+
+            <block type="cms/block" name="home_intro">
+                <action method="setBlockId"><block_id>home_intro</block_id></action>
+            </block>
+
+            <block type="cms/block" name="home_newsletter">
+                <action method="setBlockId"><block_id>home_newsletter</block_id></action>
+            </block>
 
             <block type="page/html_header" name="header" as="header">
                 <block type="page/template_links" name="top.links" as="topLinks"/>
@@ -73,14 +100,6 @@ Default layout, loads most of the pages
                     <label>Navigation Bar</label>
                     <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
                 </block>
-                <block type="cms/block" name="home_header">
-                    <action method="setBlockId"><block_id>home_header</block_id></action>
-                </block>
-                <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
-                    <label>Page Header</label>
-                    <action method="setElementClass"><value>top-container</value></action>
-                </block>
-                <block type="page/html_welcome" name="welcome" as="welcome"/>
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
@@ -101,12 +120,19 @@ Default layout, loads most of the pages
             </block>
 
             <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
-                <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">
-                    <label>Page Footer</label>
-                    <action method="setElementClass"><value>bottom-container</value></action>
+                <block type="cms/block" name="home_intro">
+                    <action method="setBlockId"><block_id>home_intro</block_id></action>
                 </block>
-                <block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/>
-                <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/>
+                <block type="cms/block" name="footer_help">
+                    <action method="setBlockId"><block_id>footer_help</block_id></action>
+                </block>
+                <block type="cms/block" name="footer_follow">
+                    <action method="setBlockId"><block_id>footer_follow</block_id></action>
+                </block>
+                <block type="cms/block" name="footer_mentions">
+                    <action method="setBlockId"><block_id>footer_mentions</block_id></action>
+                </block>
+                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
             </block>
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
