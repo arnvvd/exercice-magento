@@ -3,6 +3,10 @@
 		@include font-style ($font-bold, 4rem, 400, normal, 1.2);
 	}
 
+	&-delta{
+		@include font-style ($font-bold, 1.6rem, 400, normal, 1.2);
+	}
+
 	&_section{
 		text-transform: uppercase;
 		font-family: $font-bold;
@@ -22,5 +26,9 @@
 .paragraph{
 	&-beta{
 		@include font-style ($font-regular, 1.5rem, 400, normal, 1.6);
+	}
+
+	&-delta{
+		@include font-style ($font-regular, 1.4rem, 400, normal, 1.6);
 	}
 }

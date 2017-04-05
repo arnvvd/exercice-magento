@@ -29,9 +29,9 @@
            <layout_handle>home_page</layout_handle>
         </homepage>
         <ou translate="label">
-           <label>Diva_ou</label>
-           <template>page/ou.phtml</template>
-           <layout_handle>ou</layout_handle>
+           <label>Diva_Custom</label>
+           <template>page/productCustom.phtml</template>
+           <layout_handle>product_custom</layout_handle>
         </ou>
       </layouts>
     </page>

@@ -8,6 +8,7 @@
 /* # Sass plugins */
 @import '_config/_normalize.scss'; //Normalize
 @import '_config/sass-mq/_mq.scss'; //MQ
+@import '_config/_fonts.scss'; //MQ
 
 /* # Utilities */
 @import '_config/_mixins.scss';
@@ -32,6 +33,7 @@
 @import "_project/02_components/_footer.scss";
 @import "_project/02_components/_selection.scss";
 @import "_project/02_components/_rooms-selection.scss";
+@import "_project/02_components/_rooms-interactive.scss";
 @import "_project/02_components/_newsletter.scss";
 
 /* # Layout */

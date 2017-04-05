@@ -1,9 +1,19 @@
 /* # header */
 
 .header{
-  height: 100%;
-  min-height: 100vh;
   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+
+  .cms-home &{
+      min-height: 100vh;
+  }
+
+  .catalog-product-view &{
+      @include aspect-ratio(1960, 1080);
+  }
 
   /*MAIN CAROUSEL*/
   .main-carousel{
@@ -146,8 +156,8 @@
       transition: opacity .6s linear, transform .4s ease-in-out;
 
       &:nth-child(2){
-         transition-delay: .2s;
-       }
+        transition-delay: .2s;
+      }
       &:nth-child(3){
         transition-delay: .4s;
       }

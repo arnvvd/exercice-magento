@@ -1,3 +1,5 @@
+module.exports = function homeSlider(){
+
 var Flickity = require('flickity');
 var asNavFor = require('flickity-as-nav-for');
 var indexArray = [];
@@ -58,3 +60,4 @@ flkty2.on( 'select', function() {
     prevNextButtons: false
   });
 
+}

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 24);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -84,7 +84,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(9)
+      __webpack_require__(10)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
       return factory( window, matchesSelector );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -325,9 +325,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
       __webpack_require__(2),
       __webpack_require__(4),
       __webpack_require__(0),
-      __webpack_require__(13),
-      __webpack_require__(19),
-      __webpack_require__(12)
+      __webpack_require__(14),
+      __webpack_require__(20),
+      __webpack_require__(13)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
       return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -1309,12 +1309,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
       __webpack_require__(1),
-      __webpack_require__(14),
-      __webpack_require__(18),
-      __webpack_require__(16),
+      __webpack_require__(15),
+      __webpack_require__(19),
       __webpack_require__(17),
-      __webpack_require__(11),
-      __webpack_require__(15)
+      __webpack_require__(18),
+      __webpack_require__(12),
+      __webpack_require__(16)
     ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -1573,7 +1573,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(22)
+      __webpack_require__(23)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
       return factory( window, Unipointer );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -1679,14 +1679,21 @@ return TapListener;
 /***/ (function(module, exports, __webpack_require__) {
 
 var homeSlider = __webpack_require__(8);
+var pins = __webpack_require__(9);
 
 //DOM READY
 (function () {
 
-    $body = document.querySelector('body');
-    if ($body.length) {
-        homeSlider();
-    }
+  $home = document.querySelector('.cms-home');
+  $pins = document.querySelector('.room-interactive');
+
+  if ($home) {
+    homeSlider();
+  }
+
+  if ($pins) {
+    pins();
+  }
 })();
 
 /***/ }),
@@ -1699,64 +1706,116 @@ var homeSlider = __webpack_require__(8);
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Flickity = __webpack_require__(3);
-var asNavFor = __webpack_require__(10);
-var indexArray = [];
+module.exports = function homeSlider() {
 
-/*BACKGROUND*/
-var elem = document.querySelector('.main-carousel');
-var flkty = new Flickity(elem, {
-  freeScroll: false,
-  contain: true,
-  pageDots: false,
-  prevNextButtons: false
-});
+  var Flickity = __webpack_require__(3);
+  var asNavFor = __webpack_require__(11);
+  var indexArray = [];
 
-/* TITLE*/
-var title = document.querySelector('.title-carousel');
-var titles = document.querySelectorAll('.title-carousel-cell');
-var flkty2 = new Flickity(title, {
-  asNavFor: elem,
-  draggable: false,
-  contain: false,
-  pageDots: false,
-  prevNextButtons: false
-});
+  /*BACKGROUND*/
+  var elem = document.querySelector('.main-carousel');
+  var flkty = new Flickity(elem, {
+    freeScroll: false,
+    contain: true,
+    pageDots: false,
+    prevNextButtons: false
+  });
 
-flkty2.on('select', function () {
-  if (indexArray.length < 1) {
-    indexArray.push(flkty2.selectedElement);
-  } else if (indexArray.length === 1) {
-    indexArray[0].classList.remove('is-last');
-    indexArray.push(flkty2.selectedElement);
-    indexArray[0].classList.add('is-last');
-    setTimeout(function () {
+  /* TITLE*/
+  var title = document.querySelector('.title-carousel');
+  var titles = document.querySelectorAll('.title-carousel-cell');
+  var flkty2 = new Flickity(title, {
+    asNavFor: elem,
+    draggable: false,
+    contain: false,
+    pageDots: false,
+    prevNextButtons: false
+  });
+
+  flkty2.on('select', function () {
+    if (indexArray.length < 1) {
+      indexArray.push(flkty2.selectedElement);
+    } else if (indexArray.length === 1) {
       indexArray[0].classList.remove('is-last');
-    }, 300);
-  } else {
-    indexArray[0].classList.remove('is-last');
-    indexArray.splice(0, 1);
-    indexArray.push(flkty2.selectedElement);
-    indexArray[0].classList.add('is-last');
-    setTimeout(function () {
+      indexArray.push(flkty2.selectedElement);
+      indexArray[0].classList.add('is-last');
+      setTimeout(function () {
+        indexArray[0].classList.remove('is-last');
+      }, 300);
+    } else {
       indexArray[0].classList.remove('is-last');
-    }, 300);
-  }
-});
+      indexArray.splice(0, 1);
+      indexArray.push(flkty2.selectedElement);
+      indexArray[0].classList.add('is-last');
+      setTimeout(function () {
+        indexArray[0].classList.remove('is-last');
+      }, 300);
+    }
+  });
 
-/*DESC*/
-var desc = document.querySelector('.desc-carousel');
-var descs = document.querySelectorAll('.desc-carousel-cell');
-var flkty3 = new Flickity(desc, {
-  asNavFor: elem,
-  draggable: false,
-  contain: false,
-  pageDots: false,
-  prevNextButtons: false
-});
+  /*DESC*/
+  var desc = document.querySelector('.desc-carousel');
+  var descs = document.querySelectorAll('.desc-carousel-cell');
+  var flkty3 = new Flickity(desc, {
+    asNavFor: elem,
+    draggable: false,
+    contain: false,
+    pageDots: false,
+    prevNextButtons: false
+  });
+};
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+module.exports = function pins() {
+
+	var $pins = document.querySelectorAll('.room-interactive-product');
+
+	for (var i = 0; i < $pins.length; i++) {
+		var x = $pins[i].getAttribute('data-x');
+		var y = $pins[i].getAttribute('data-y');
+		var card = $pins[i].querySelector('.room-interactive-card');
+		placeData(card, x, y);
+
+		// Buttons
+		var $button = $pins[i].querySelector('button');
+		$button.addEventListener('click', function () {
+
+			if (this.parentNode.classList.contains('is-active')) {
+				for (var j = 0; j < $pins.length; j++) {
+					$pins[j].classList.remove('is-active');
+				}
+			} else {
+				for (var j = 0; j < $pins.length; j++) {
+					$pins[j].classList.remove('is-active');
+				}
+				this.parentNode.classList.add('is-active');
+			}
+		});
+	}
+
+	// FUNCTIONS
+
+	function placeData(e, x, y) {
+
+		if (x > 50) {
+			e.classList.add('room-interactive-card--left');
+		} else {
+			e.classList.add('room-interactive-card--right');
+		}
+
+		if (y > 50) {
+			e.classList.add('room-interactive-card--top');
+		} else {
+			e.classList.add('room-interactive-card--bottom');
+		}
+	}
+};
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -1819,7 +1878,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1978,7 +2037,7 @@ return Flickity;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -2167,7 +2226,7 @@ return Flickity;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -2393,7 +2452,7 @@ return proto;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -2490,7 +2549,7 @@ return Cell;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -2501,7 +2560,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
       __webpack_require__(1),
-      __webpack_require__(21),
+      __webpack_require__(22),
       __webpack_require__(0)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
       return factory( window, Flickity, Unidragger, utils );
@@ -2881,7 +2940,7 @@ return Flickity;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -3007,7 +3066,7 @@ return Flickity;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -3192,7 +3251,7 @@ return Flickity;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -3412,7 +3471,7 @@ return Flickity;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -3639,7 +3698,7 @@ return Flickity;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -3725,7 +3784,7 @@ return Slide;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4035,7 +4094,7 @@ return Unipointer;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4053,7 +4112,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(20)
+      __webpack_require__(21)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
       return factory( window, Unipointer );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -4326,7 +4385,7 @@ return Unidragger;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4628,7 +4687,7 @@ return Unipointer;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);

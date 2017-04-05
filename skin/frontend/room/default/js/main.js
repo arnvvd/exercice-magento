@@ -1,11 +1,19 @@
 var homeSlider = require('./modules/homeSlider.js');
+var pins = require('./modules/pins.js');
 
 //DOM READY
 (function(){
 
-    $body =  document.querySelector('body');
-    if($body.length){
-        homeSlider();
-    }
+  $home=  document.querySelector('.cms-home');
+  $pins =  document.querySelector('.room-interactive');
+
+
+  if($home){
+    homeSlider();
+  }
+
+  if($pins){
+  	pins();
+  }
 
 })();

@@ -1,0 +1,112 @@
+.room{
+	&-interactive{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		background-color: #000;
+
+		img{
+			opacity:.7;
+		}
+
+		&-product{
+			position: absolute;
+
+			&-list{
+				@include stretch();
+			}
+		}
+
+		&-card{
+			display: block;
+			width: 14.6vw;
+			height: 100%;
+			background: #fff;
+			padding: 1rem;
+			text-align: center;
+			opacity: 0;
+			pointer-events: none;
+			@include aspect-ratio(210, 290);
+			transition: opacity .4s ease-out;
+
+
+			.content{
+				padding: 1rem;
+			}
+
+			&-image{
+				height: 50%;
+				padding: 1rem;
+				img{
+					width: auto;
+			    	max-width: 100%;
+			    	height: 100%;
+				}	
+			}
+
+			&-details {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 50%;
+				padding-bottom: 1rem;
+			}
+
+
+			&-price{
+				padding: .5rem;
+				@include font-style ($font-bold, 2.4rem, 400, normal, 1);
+			}
+
+			&--left{
+				margin-right: 2.6rem;
+			}
+
+			&--right{
+				margin-left: 2.6rem;
+			}
+
+			&--top{
+				margin-top: -2.6rem;
+			}
+
+		}
+	}
+}
+
+.is-active{
+	.room-interactive-card{
+		opacity: 1;
+		pointer-events: auto;
+		transition: opacity .4s ease-out;
+	}
+}
+
+.room-interactive-card--right.room-interactive-card--top{
+	transform: translate(0, -100%);
+}
+
+.room-interactive-card--left.room-interactive-card--top{
+	transform: translate(-100%, -100%);
+}
+
+.room-interactive-card--right.room-interactive-card--bottom{
+	transform: translate(0, 0);
+}
+
+.room-interactive-card--left.room-interactive-card--bottom{
+	transform: translate(-100%, 0);
+}
+
+.svg-pin{
+	.is-active &{
+		circle{
+			fill: #FFF;
+		}
+
+		.svg-min{
+			stroke: #000;
+		}
+	}
+}

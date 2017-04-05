@@ -2,6 +2,11 @@
   background: black;
   padding: 7rem;
 
+  &_logo{
+    width: 60%;
+    display: block;
+  }
+
   &_list{
     li{
       color: #797979;
