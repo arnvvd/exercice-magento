@@ -1,0 +1,27 @@
+.modality{
+  padding: 9rem 0;
+
+  >div{
+    text-align: center;
+    font-family: $font-regular;
+    font-size: 1.4rem;
+
+    strong{
+      font-size: 1.6rem;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+      color: $title-color;
+      display: block;
+      font-family: $font-bold;
+    }
+  }
+
+  &_picto{
+    display: flex;
+    align-items: center;
+    height: 7.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+}

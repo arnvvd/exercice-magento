@@ -289,14 +289,26 @@ Supported layout update handles (special):
     </PRODUCT_TYPE_configurable>
 
     <PRODUCT_TYPE_grouped translate="label" module="catalog">
+
+
         <label>Catalog Product View (Grouped)</label>
         <reference name="product.info">
             <block type="catalog/product_view_type_grouped" name="product.info.grouped" as="product_type_data" template="catalog/product/view/type/grouped.phtml">
                 <block type="core/text_list" name="product.info.grouped.extra" as="product_type_data_extra" translate="label">
                     <label>Product Extra Info</label>
                 </block>
+                <!--MENU-->
+                <block type="page/template_links" name="top.links" as="topLinks"/>
+                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
+                <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
+                    <label>Navigation Bar</label>
+                    <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
+                </block>
+
             </block>
         </reference>
+
+
     </PRODUCT_TYPE_grouped>
 
     <PRODUCT_TYPE_virtual translate="label" module="catalog">

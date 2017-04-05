@@ -1,0 +1,82 @@
+.room{
+
+	&-introduction{
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+	
+
+	&-desc{
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		@include no-inline-block-margin();
+
+		&-wrapper{
+			display: block;
+			max-width: 47rem;
+			padding:0 1rem 0 4rem;
+			margin: 0 0 0 auto;
+		}
+
+		p{	
+			color: $clear-color;
+			padding-bottom: 3rem;
+
+			&:last-child{
+				padding-bottom: 0;
+			}
+		}
+	}
+
+
+}
+
+.author-desc{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	@include no-inline-block-margin();
+
+	h2,h3{
+		color: $tonic-color;
+	}
+
+	&-wrapper{
+		display: block;
+		max-width: 37rem;
+		padding:0 1rem 0 4rem;
+		margin: 0 auto;
+	}
+
+	p{
+		color: $clear-color;
+	}
+
+	&-header{
+		padding-bottom: 3rem;
+		@include font-style ($font-regular, 1.2rem, 400, normal, 1);
+	}
+
+	&-image{
+		display: inline-block;
+		vertical-align:middle;
+		position: relative;
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+		overflow: hidden;
+		@include no-inline-block-margin();
+	}
+
+	&-infos{
+		display: inline-block;
+		vertical-align:middle;
+		@include no-inline-block-margin();
+		padding-left: 1.5rem
+	}
+
+	.btn-cta{
+		margin-top: 3.5rem;
+	}
+}

@@ -72,18 +72,16 @@
 
 <section class=" section-utils background-utils newsletter">
     <div class="container">
-        <div class="row">
-            <?php echo $this->getChildHtml('home_newsletter') ?>
+        <?php echo $this->getChildHtml('home_newsletter') ?>
 
-            <span class="newsletter_form">
-                <input type="text" name="" id="">
-                <input type="submit" value="souscrire">
-            </span>
-        </div>
+        <span class="newsletter_form">
+            <input type="text" name="" id="">
+            <input type="submit" value="souscrire">
+        </span>
     </div>
 </section>
-<?php echo $this->getChildHtml('footer') ?>
 
+<?php echo $this->getChildHtml('footer') ?>
 
 <script src="<?php echo $this->getSkinUrl('js/bundle.js'); ?>"></script>
 <?php echo $this->getAbsoluteFooter() ?>
