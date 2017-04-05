@@ -46,8 +46,7 @@
 
 <?php echo $this->getChildHtml('header') ?>
 
-
-<section class="introduce">
+<section class="section-utils introduce">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -57,137 +56,21 @@
     </div>
 </section>
 
-<section class="product-selection-list-wrapper">
-    <div class="centered">
-        <h2 class="title_section">La Sélection</h2>
-        <ul class="product-selection-list">
-            <li>
-                <a href="#" class="content" style="background-image:url('assets/images/product1.png')">
-              <span class="product-selection-header">
-                <p class="product-selection-price">12€</p>
-                <ul class="product-selection-utils">
-                  <li>
-                    <button>
-                      P
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      F
-                    </button>
-                  </li>
-                </ul>
-              </span>
-                    <span class="product-selection-details">
-                <h3 class="title-delta">Nom du produit</h3>
-                <p class="paragraph-delta">Chaise Martin</p>
-              </span>
-                </a>
-            </li>
-            <li>
-                <div class="content product-selection-promo">
-                    <p>Jusqu'au 1er Mai <span class="reduce">-20% </span> Avec le code promo <span class="code">Last-Day*</span></p>
-                </div>
-            </li>
-            <li>
-                <a href="#" class="content" style="background-image:url('assets/images/product2.png')">
-              <span class="product-selection-header">
-                <p class="product-selection-price">12€</p>
-                <ul class="product-selection-utils">
-                  <li>
-                    <button>
-                      P
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      F
-                    </button>
-                  </li>
-                </ul>
-              </span>
-                    <span class="product-selection-details">
-                <h3 class="title-delta">Nom du produit</h3>
-                <p class="paragraph-delta">Canapé Josie</p>
-              </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="content" style="background-image:url('assets/images/product3.png')">
-              <span class="product-selection-header">
-                <p class="product-selection-price">12€</p>
-                <ul class="product-selection-utils">
-                  <li>
-                    <button>
-                      P
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      F
-                    </button>
-                  </li>
-                </ul>
-              </span>
-                    <span class="product-selection-details">
-                <h3 class="title-delta">Nom du produit</h3>
-                <p class="paragraph-delta">Etagère Josie</p>
-              </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="content" style="background-image:url('assets/images/product4.png')">
-              <span class="product-selection-header">
-                <p class="product-selection-price">12€</p>
-                <ul class="product-selection-utils">
-                  <li>
-                    <button>
-                      P
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      F
-                    </button>
-                  </li>
-                </ul>
-              </span>
-                    <span class="product-selection-details">
-                <h3 class="title-delta">Nom du produit</h3>
-                <p class="paragraph-delta">Cousin cousin</p>
-              </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="content" style="background-image:url('assets/images/product5.png')">
-              <span class="product-selection-header">
-                <p class="product-selection-price">12€</p>
-                <ul class="product-selection-utils">
-                  <li>
-                    <button>
-                      P
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      F
-                    </button>
-                  </li>
-                </ul>
-              </span>
-                    <span class="product-selection-details">
-                <h3 class="title-delta">Nom du produit</h3>
-                <p class="paragraph-delta">Tabouret Ray</p>
-              </span>
-                </a>
-            </li>
-        </ul>
+<section class="section-utils background-utils">
+    <div class="container">
+        <h2 class="title_section">Les pièces</h2>
+        <?php echo $this->getChildHtml('catalog_homepage_piece') ?>
     </div>
 </section>
 
-        <?php echo $this->getChildHtml('catalog_category') ?>
+<section class="section-utils">
+    <div class="container">
+        <h2 class="title_section">La Sélection</h2>
+        <?php echo $this->getChildHtml('catalog_homepage_selection') ?>
+    </div>
+</section>
 
-<section class="newsletter">
+<section class=" section-utils background-utils newsletter">
     <div class="container">
         <div class="row">
             <?php echo $this->getChildHtml('home_newsletter') ?>

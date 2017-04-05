@@ -1,14 +1,5 @@
 .product-selection{
-  @extend .centered;
-  max-width: 128rem;
-
-
-
   &-list{
-    &-wrapper{
-      text-align: center;
-    }
-
     >li{
       position: relative;
       display: inline-block;

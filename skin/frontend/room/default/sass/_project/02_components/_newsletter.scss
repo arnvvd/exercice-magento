@@ -1,6 +1,7 @@
 .newsletter{
-  padding: 6rem 0;
-  background-color: $gray-color;
+  background-image: url("../images/footer_bougie.png"), url("../images/footer_chaise.png");
+  background-position: center left, center right;
+  background-size: 10%;
   text-align: center;
 
   &_text{

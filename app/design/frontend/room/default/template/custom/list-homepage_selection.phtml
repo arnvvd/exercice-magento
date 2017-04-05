@@ -1,0 +1,69 @@
+<?php
+$_productCollection = Mage::getModel("catalog/product")
+    ->getCollection()
+    ->addAttributeToSelect('*')
+    ->addAttributeToFilter('visibility', 4)
+    ->addAttributeToFilter('type_id', array('eq' => 'simple'))
+    ->setPageSize(5);
+?>
+<?php $count = 0?>
+<ul class="product-selection-list">
+    <?php foreach ($_productCollection as $_product): ?>
+        <?php if($count == 1){ ?>
+            <li>
+                <div class="content product-selection-promo">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_promotion')->toHtml(); ?>
+                </div>
+            </li>
+            <li>
+                <a href="<?php echo $_product->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_product, 'image');?>')">
+                  <span class="product-selection-header">
+                    <p class="product-selection-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?></p>
+                    <ul class="product-selection-utils">
+                      <li>
+                        <button>
+                          P
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          F
+                        </button>
+                      </li>
+                    </ul>
+                  </span>
+                    <span class="product-selection-details">
+                    <h3 class="title-delta"><?php echo $_product->getName();?></h3>
+                    <p class="paragraph-delta"><?php echo $_product->getDescription();?></p>
+                  </span>
+                </a>
+            </li>
+
+        <?php } else { ?>
+            <li>
+                <a href="<?php echo $_product->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_product, 'image');?>')">
+                  <span class="product-selection-header">
+                    <p class="product-selection-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?></p>
+                    <ul class="product-selection-utils">
+                      <li>
+                        <button>
+                          P
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          F
+                        </button>
+                      </li>
+                    </ul>
+                  </span>
+                    <span class="product-selection-details">
+                    <h3 class="title-delta"><?php echo $_product->getName();?></h3>
+                    <p class="paragraph-delta"><?php echo $_product->getDescription();?></p>
+                  </span>
+                </a>
+            </li>
+        <?php } $count++?>
+
+    <?php endforeach; ?>
+</ul>

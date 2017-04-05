@@ -64,8 +64,14 @@ Default layout, loads most of the pages
                 <label>Page Top</label>
             </block>
 
-            <block type="catalog/navigation" name="catalog_category" template="catalog/category/list.phtml">
-                <label>List Category</label>
+            <block type="catalog/navigation" name="catalog_homepage_selection"
+                   template="custom/list-homepage_selection.phtml">
+                <label>List Homepage Selection</label>
+            </block>
+
+            <block type="catalog/navigation" name="catalog_homepage_piece"
+                   template="custom/list-homepage_piece.phtml">
+                <label>List Homepage Piece</label>
             </block>
 
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
@@ -89,11 +95,17 @@ Default layout, loads most of the pages
                 <action method="setBlockId"><block_id>home_intro</block_id></action>
             </block>
 
+
+
             <block type="cms/block" name="home_newsletter">
                 <action method="setBlockId"><block_id>home_newsletter</block_id></action>
             </block>
 
             <block type="page/html_header" name="header" as="header">
+                <block type="catalog/navigation" name="slider_homepage"
+                       template="custom/slider-homepage.phtml">
+                    <label>List Homepage Slider</label>
+                </block>
                 <block type="page/template_links" name="top.links" as="topLinks"/>
                 <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
                 <block type="core/text_list" name="top.menu" as="topMenu" translate="label">

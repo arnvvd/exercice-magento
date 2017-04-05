@@ -1,0 +1,39 @@
+<?php
+$_productCollection = Mage::getModel("catalog/product")
+    ->getCollection()
+    ->addAttributeToSelect('*')
+    ->addAttributeToFilter('visibility', 4)
+    ->addAttributeToFilter('type_id', array('eq' => 'grouped'))
+    ->setPageSize(4);
+
+$slider_background;
+$slider_describe;
+$slider_infos;
+?>
+
+<?php foreach ($_productCollection as $_product):
+    $slider_background .= "<li class=\"main-carousel-cell\"><div class=\"main-carousel-image\" style=\"background-image: url('" . (string)Mage::helper('catalog/image')->init($_product, 'image') ."')\"></div></li>";
+
+    $slider_describe .= "<li class=\"title-carousel-cell\"><h3 class=\"title-beta\">". $_product->getName() ."</h3><p class=\"paragraph-beta\">". $_product->getDescription() ."</p><a class=\"btn btn--clear\" href=\"". $_product->getProductUrl() . "\">>Voir la room</a></li>";
+
+   $slider_infos .= "<li class=\"desc-carousel-cell\"> <ul><li><div> style <span>". Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getCategoryIds()[0])->getName(). "</span> </div> </li> <li> <div> superficie <span> ". $_product->getSurface() ." m2 </span> </div> </li> <li> <div> nombre de produits <span>8 produits</span> </div> </li> <li> <div> contributeur <span> ". $_product->getContributeur() ." </span> </div> </li> </ul> </li>";
+
+endforeach; ?>
+
+<ul class="main-carousel">
+    <?php  echo $slider_background; ?>
+</ul>
+
+<div class="title-carousel-wrapper">
+    <ul class="title-carousel">
+        <?php  echo $slider_describe; ?>
+    </ul>
+</div>
+
+<div class="desc-carousel-wrapper">
+    <ul class="desc-carousel">
+        <?php  echo $slider_infos; ?>
+    </ul>
+</div>
+
+

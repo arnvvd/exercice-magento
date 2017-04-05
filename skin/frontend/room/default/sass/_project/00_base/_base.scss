@@ -104,3 +104,11 @@ input:focus {
 {
 	@include hide-for-viewer;
 }
+
+.background-utils{
+	background-color: $gray-color;
+}
+
+.section-utils{
+	padding: 10rem 0;
+}
