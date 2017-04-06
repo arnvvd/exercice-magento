@@ -83,6 +83,13 @@ button{
       -moz-osx-font-smoothing: grayscale;
     }
 
+    &--alt{
+      background-color: #000;
+      &:hover{
+        background-color: lighten(#000, 3%);
+      }
+    }
+
     &:hover{
       background-color: lighten($tonic-color, 3%);
       transform: background-color .4s ease-out;

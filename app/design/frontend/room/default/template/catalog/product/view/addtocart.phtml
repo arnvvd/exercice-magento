@@ -27,12 +27,17 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
-    <div class="add-to-cart">
+
+    <ul class="product-add-card">
         <?php if(!$_product->isGrouped()): ?>
-        <label for="qty"><?php echo $this->__('Qty:') ?></label>
-        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty" />
+        <li><label for="qty">Quantite</label></li>
+        <li><input type="number" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty" /></li>
         <?php endif; ?>
-        <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+    </ul>
+
+    <ul class="product-price-action">
+        <li><a onclick="productAddToCartForm.submit(this)" class="btn-cta btn-cta--alt">Acheter maintenant</a></li>
+        <li class="product-price"><?php echo $this->getPriceHtml($_product) ?></li>
         <?php echo $this->getChildHtml('', true, true) ?>
-    </div>
+    </ul>
 <?php endif; ?>

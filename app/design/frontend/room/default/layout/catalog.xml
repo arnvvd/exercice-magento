@@ -270,6 +270,14 @@ Supported layout update handles (special):
                 <block type="core/text_list" name="product.info.simple.extra" as="product_type_data_extra" translate="label">
                     <label>Product Extra Info</label>
                 </block>
+                <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
+                <!--MENU-->
+                <block type="page/template_links" name="top.links" as="topLinks"/>
+                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
+                <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
+                    <label>Navigation Bar</label>
+                    <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
+                </block>
             </block>
         </reference>
     </PRODUCT_TYPE_simple>

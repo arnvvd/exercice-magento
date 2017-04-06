@@ -50,6 +50,7 @@
         ->addAttributeToFilter('entity_id', array('in' => array_map('strval', $_relatedProduct)));
 ?>
 
+<div class="pin">
 <header class='header'>
     <div class="content">
         <div class="header-nav-wrapper">
@@ -155,7 +156,7 @@
         <div class="author-desc">
             <div class="author-desc-wrapper paragraph-beta">
                 <header class="author-desc-header">
-                    <img class="author-desc-image" src="assets/images/room1.jpg" alt="">
+                    <img class="author-desc-image" src="<?php echo Mage::getBaseUrl('media')."catalog/product".$_helper->productAttribute($_product, $_product->getContributorPicture(), 'name');?>" alt="">
                     <div class="author-desc-infos">
                         <h2 class="title-gamma"><?php echo $_helper->productAttribute($_product, $_product->getContributeur(), 'name') ?></h2>
                         <p><?php echo $_helper->productAttribute($_product, $_product->getContributorAge()) ?> ans, <?php echo $_helper->productAttribute($_product, $_product->getContributorCity()) ?></p>
@@ -232,3 +233,4 @@ $_productSimular = Mage::getModel('catalog/category')
         </ul>
     </div>
 </section>
+</div>

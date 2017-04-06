@@ -1,0 +1,169 @@
+.article-product{
+	position: relative;
+	@extend .centered;
+	display: table;
+	min-height: calc(100vh - 92px);
+
+	
+	&:before{
+		content:'';
+		position: absolute;
+		bottom: 0;
+		right: 50%;
+		width: 9999px;
+		height: 9999px;
+		background-color: #FFF4E1;
+		z-index: -1;
+	}
+
+	&-visual{
+		display: table-cell;
+		vertical-align: middle;
+		width: 50%;
+		height: 100%;
+		background-color: #FFF4E1;
+		padding: 0 3rem 0 5rem;
+		img{
+			max-width: 35rem;
+		}
+	}
+	&-desc{
+		display: table-cell;
+		vertical-align: middle;
+		width: 50%;
+		height: 100%;
+		padding: 10rem 0rem 10rem 6rem;
+	}
+
+	.form-control{
+		margin-top: 5rem;
+		margin-bottom: 3rem;
+	}
+}
+
+.product-carousel-navigation{
+	position: relative;
+	display: inline-block;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+
+	&:after{
+		content:'';
+		position: absolute;
+		bottom: 2rem;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: $clear-color;
+		opacity: .3;
+	}
+
+	li{
+		display: inline-block;
+		vertical-align: top;
+		padding-right: 4rem;
+		button{
+			@include font-style ($font-regular, 1.4rem, 400, normal, 1);
+			text-transform: uppercase;
+
+			&.is-active{
+				@include font-style ($font-bold, 1.4rem, 400, normal, 1);
+			}
+		}
+
+		&:last-child{
+			padding-right: 0;
+		}
+	}
+}
+
+
+.product-carousel{
+
+	.flickity-slider {
+	  transform: none !important;
+	}
+
+	.flickity-viewport{
+		transition: height 0.2s ease-in;
+	}
+
+	&-cell{
+		width: 100%;
+		left: 0 !important;
+		opacity: 0;
+		transition: opacity 0.4s linear;
+		z-index: -1;
+
+		&:first-child{
+			color: $clear-color;
+		}
+
+		&:last-child{
+			li{
+				display: inline-block;
+				vertical-align: top;
+				width: 50%;
+				@include no-inline-block-margin();
+				@include font-style ($font-bold, 1.5rem, 400, normal, 25/15);
+
+				span{
+					@include font-style ($font-regular, 1.5rem, 400, normal, 25/15);
+					color: $clear-color;
+				}
+			}
+		}
+
+		&.is-selected {
+		  opacity: 1;
+		  z-index: 0
+		}
+	}
+}
+
+.product-price-action{
+	display: flex;
+	flex-direction: row;
+	max-width: 43rem;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	li{
+		display: inline-block;
+		verical-align: top;
+	}
+}
+
+.product-price{
+	span{
+		@include font-style ($font-regular, 5rem, 400, normal, 1);
+		padding-left: 2rem;
+	}
+}
+
+.product-add-card{
+	margin: 2rem 0 4rem 0;
+	font-size: 0;
+	display: inline-block;
+	border: .1rem solid rgba(#000000, .3);
+
+	li{
+		@include font-style ($font-bold, 1.3rem, 400, normal, 1);
+		display: inline-block;
+
+	}
+
+	input{
+		border: none;
+		width: 3.3rem;
+		padding: 1rem 0;
+		text-align: center;
+		border-left: .1rem solid rgba(#000000, .3);
+		@include font-style ($font-bold, 1.3rem, 400, normal, 1);
+	}
+
+	label{
+		text-transform: uppercase;
+		padding: 0 2rem;
+	}
+}
