@@ -52,14 +52,22 @@
   }
 
   &-utils{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
     li{
       display: inline-block;
       vertical-align: top;
       pointer-events: auto;
       @include no-inline-block-margin();
     }
-    button{
-      padding: 0 1rem;
+    a{
+      padding: 0 .5rem;
+
+      i{
+        font-size: 2rem;
+      }
     }
   }
 

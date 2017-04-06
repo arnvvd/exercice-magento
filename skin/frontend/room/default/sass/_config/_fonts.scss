@@ -22,3 +22,14 @@
   font-family : 'kepler';
   src : url('../fonts/KeplerStd-Black.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?utssru');
+  src:  url('../fonts/icomoon.eot?utssru#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?utssru') format('truetype'),
+  url('../fonts/icomoon.woff?utssru') format('woff'),
+  url('../fonts/icomoon.svg?utssru#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

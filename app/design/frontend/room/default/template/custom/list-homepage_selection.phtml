@@ -19,24 +19,24 @@ $_productCollection = Mage::getModel("catalog/product")
                 <a href="<?php echo $_product->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_product, 'image');?>')">
                   <span class="product-selection-header">
                     <p class="product-selection-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?></p>
-                    <ul class="product-selection-utils">
-                      <li>
-                        <button>
-                          P
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          F
-                        </button>
-                      </li>
-                    </ul>
                   </span>
                     <span class="product-selection-details">
                     <h3 class="title-delta"><?php echo $_product->getName();?></h3>
                     <p class="paragraph-delta"><?php echo $_product->getDescription();?></p>
                   </span>
                 </a>
+                <ul class="product-selection-utils">
+                    <li>
+                        <?php $key = Mage::getSingleton('core/session')->getFormKey();?>
+                        <a href="<?php echo Mage::getBaseUrl(); ?>checkout/cart/add/product/<?php echo $_product->getId() ?>?form_key=<?php echo $key;?>"> <i class="icon-card"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="icon-star"></i>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
         <?php } else { ?>
@@ -44,24 +44,24 @@ $_productCollection = Mage::getModel("catalog/product")
                 <a href="<?php echo $_product->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_product, 'image');?>')">
                   <span class="product-selection-header">
                     <p class="product-selection-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?></p>
-                    <ul class="product-selection-utils">
-                      <li>
-                        <button>
-                          P
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          F
-                        </button>
-                      </li>
-                    </ul>
                   </span>
                     <span class="product-selection-details">
                     <h3 class="title-delta"><?php echo $_product->getName();?></h3>
                     <p class="paragraph-delta"><?php echo $_product->getDescription();?></p>
                   </span>
                 </a>
+                <ul class="product-selection-utils">
+                    <li>
+                        <?php $key = Mage::getSingleton('core/session')->getFormKey();?>
+                        <a href="<?php echo Mage::getBaseUrl(); ?>checkout/cart/add/product/<?php echo $_product->getId() ?>?form_key=<?php echo $key;?>"> <i class="icon-card"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="icon-star"></i>
+                        </a>
+                    </li>
+                </ul>
             </li>
         <?php } $count++?>
 

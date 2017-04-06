@@ -61,7 +61,7 @@
                     <ul class="site-utils">
                         <li><?php //echo $this->getChildHtml('store_language') ?> FR</li>
                         <li>E</li>
-                        <li>R</li>
+                        <li><i class="icon-search"></i></li>
                     </ul>
 
                     <?php echo $this->getChildHtml('topLinks') ?>
@@ -77,7 +77,7 @@
 
 
                 <?php foreach ($collection as $_currentProduct): ?>
-                <li class="room-interactive-product" data-x="20" data-y="50" style="left: <?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionX(), 'name') ?>%; top: <?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionY(), 'name') ?>%;">
+                <li class="room-interactive-product" data-x="<?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionX(), 'name') ?>" data-y="<?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionX(), 'name') ?>" style="left: <?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionX(), 'name') ?>%; top: <?php echo $_helper->productAttribute($_currentProduct, $_currentProduct->getPositionY(), 'name') ?>%;">
                     <button>
                         <svg class="svg-pin" width="26px" height="26px" viewBox="-1 -1 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Group-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -128,7 +128,7 @@
                         </li>
                         <li>
                             <div> nombre de produits
-                                <span>8 produits</span>
+                                <span><?php count($_product->getRelatedProductIds()) ?> produits</span>
                             </div>
                         </li>
                         <li>
@@ -162,7 +162,7 @@
                     </div>
                 </header>
                 <p><?php echo $_helper->productAttribute($_product, $_product->getContributorPresentation()); ?></p>
-                <a href="#" class="btn-cta">> Voir le profil</a>
+                <a href="#" class="btn-cta">Voir le profil</a>
             </div>
         </div>
     </div>
@@ -178,24 +178,24 @@
                         <a href="<?php echo $_currentProduct->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_currentProduct, 'image');?>')">
                   <span class="product-selection-header">
                     <p class="product-selection-price"><?php echo Mage::helper('core')->currency($_currentProduct->getFinalPrice(), true, false);?></p>
-                    <ul class="product-selection-utils">
-                      <li>
-                        <button>
-                          P
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          F
-                        </button>
-                      </li>
-                    </ul>
                   </span>
                             <span class="product-selection-details">
                     <h3 class="title-delta"><?php echo $_currentProduct->getName();?></h3>
                     <p class="paragraph-delta"><?php echo $_currentProduct->getDescription();?></p>
                   </span>
                         </a>
+                        <ul class="product-selection-utils">
+                            <li>
+                                <?php $key = Mage::getSingleton('core/session')->getFormKey();?>
+                                <a href="<?php echo Mage::getBaseUrl(); ?>checkout/cart/add/product/<?php echo $_currentProduct->getId() ?>?form_key=<?php echo $key;?>"> <i class="icon-card"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="icon-star"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
             <?php endforeach; ?>
         </ul>
