@@ -5,9 +5,12 @@ var asNavFor = require('flickity-as-nav-for');
 var indexArray = [];
 
 
-/*BACKGROUND*/
 var elem = document.querySelector('.main-carousel');
+var title = document.querySelector('.title-carousel');
+
+/*BACKGROUND*/
 var flkty = new Flickity( elem, {
+  asNavFor: title,
   freeScroll: false,
   contain: true,
   pageDots: false,
@@ -16,7 +19,6 @@ var flkty = new Flickity( elem, {
 
 
 /* TITLE*/
-var title = document.querySelector('.title-carousel');
 var titles = document.querySelectorAll('.title-carousel-cell');
 var flkty2 = new Flickity( title, {
   asNavFor: elem,

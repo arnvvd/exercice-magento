@@ -20,6 +20,12 @@
 			margin-bottom: 0;
 		}
 
+		&--search{
+			text-transform: initial;
+			font-family: $font-title;
+			margin: 4rem 0;
+		}
+
 		&--alignLeft{
 			text-align: left;
 			margin-bottom: 0;

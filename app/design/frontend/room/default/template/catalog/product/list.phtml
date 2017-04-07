@@ -44,7 +44,7 @@
             <ul class="product-selection-list product-selection-list--mini">
                 <?php foreach ($_productCollection as $_product): ?>
                 <li>
-                    <a href="<?php echo $_product->getProductUrl(); ?>" class="content" style="background-image:url('<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(300)->setQuality(100); ?>')">
+                    <a href="<?php echo $_product->getProductUrl(); ?>" class="content" style="background-image:url('<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(300)->setQuality(100); ?>')">
                         <span class="product-selection-header">
                             <p class="product-selection-price">
                                 <?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?>
