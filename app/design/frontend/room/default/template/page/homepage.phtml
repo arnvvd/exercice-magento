@@ -63,6 +63,21 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <div class="centered">
+            <div class="landing-strat">
+                <div class="landing-strat--odd">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_baseline')->toHtml(); ?>
+                </div>
+                <div class="landing-strat--even">
+                    <img src="<?php echo $this->getSkinUrl('images/home_baseline.png'); ?>" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section-utils">
     <div class="container">
         <h2 class="title_section">La Sélection</h2>

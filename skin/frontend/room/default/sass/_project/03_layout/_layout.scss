@@ -40,7 +40,38 @@
 
 .centered{
 	width: 100%;
-	max-width: 1120px;
+	max-width: 125rem;
 	padding: 0 4rem;
 	margin: 0 auto;
+}
+
+
+.landing-strat{
+	display: table;
+	position: relative;
+	top: 4rem;
+	&--odd,
+	&--even{
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		@include no-inline-block-margin();
+	}
+
+	&--odd{
+		max-width: 67rem;
+	}
+}
+
+.landing-w{
+	@include font-style($font-regular, 1.5rem, 400, normal, 25/15);
+	color: $clear-color;
+	padding-bottom: 2rem;
+}
+
+.landing-quote{
+	@include font-style($font-regular, 1.5rem, 400, normal, 25/15);
+	text-align: left;
+	color: $clear-color;
+	padding-bottom:2rem;
 }
