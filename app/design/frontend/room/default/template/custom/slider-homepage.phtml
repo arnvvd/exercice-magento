@@ -15,9 +15,9 @@ $slider_infos;
 
     $slider_background .= "<li class=\"main-carousel-cell\"><div class=\"main-carousel-image\" style=\"background-image: url('" . (string)Mage::helper('catalog/image')->init($_product, 'image') ."')\"></div></li>";
 
-    $slider_describe .= "<li class=\"title-carousel-cell\"><h3 class=\"title-beta\">". $_product->getName() ."</h3><p class=\"paragraph-beta\">". $_product->getDescription() ."</p><a class=\"btn btn--clear\" href=\"". $_product->getProductUrl() . "\">Voir la room</a></li>";
+    $slider_describe .= "<li class=\"title-carousel-cell\"><h3 class=\"title-beta\">". $_product->getName() ."</h3><p class=\"paragraph-beta\">". $_product->getDescription() ."</p><a class=\"btn btn--clear\" href=\"". $_product->getProductUrl() . "\">Voir la piece</a></li>";
 
-   $slider_infos .= "<li class=\"desc-carousel-cell\"> <ul><li><div> style <span>". Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getCategoryIds()[0])->getName(). "</span> </div> </li> <li> <div> superficie <span> ". $_product->getSurface() ." m2 </span> </div> </li> <li> <div> nombre de produits <span>" . count($_product->getRelatedProductIds()) . " produits</span> </div> </li> <li> <div> contributeur <span> ". $_product->getContributeur() ." </span> </div> </li> </ul> </li>";
+   $slider_infos .= "<li class=\"desc-carousel-cell\"> <ul><li><div> style <span>". Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getCategoryIds()[0])->getName(). "</span> </div> </li> <li> <div> superficie <span> ". $_product->getSurface() ." m<sup>2</sup> </span> </div> </li> <li> <div> nombre de produits <span>" . count($_product->getRelatedProductIds()) . " produits</span> </div> </li> <li> <div> contributeur <span> ". $_product->getContributeur() ." </span> </div> </li> </ul> </li>";
 
 endforeach; ?>
 
