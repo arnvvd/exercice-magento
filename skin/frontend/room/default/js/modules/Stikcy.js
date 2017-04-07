@@ -15,9 +15,6 @@ var Sticky = function (element, options) {
   if(this.$element){
     this.stick();
   }
-
-  MediaQ();
-
 }
 
 Sticky.prototype.stick = function stick() {

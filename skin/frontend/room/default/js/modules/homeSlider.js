@@ -10,7 +10,6 @@ var title = document.querySelector('.title-carousel');
 
 /*BACKGROUND*/
 var flkty = new Flickity( elem, {
-  asNavFor: title,
   freeScroll: false,
   contain: true,
   pageDots: false,
