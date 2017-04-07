@@ -1688,8 +1688,9 @@ var Sticky = __webpack_require__(8);
 
   var $home = document.querySelector('.cms-home');
   var $pins = document.querySelector('.room-interactive');
-  var $product = document.querySelector('.product');
+  var $product = document.querySelector('.product-carousel');
   var $productFilter = document.querySelector('.product-filter');
+  var $search = document.querySelector('#search_mini_form');
 
   if ($home) {
     homeSlider();
@@ -1712,6 +1713,35 @@ var Sticky = __webpack_require__(8);
       stickedClass: 'is--sticked',
       positionnedClass: 'is--positionned',
       marginBottom: 0
+    });
+  }
+
+  if ($search) {
+
+    var $buttonOpen = document.querySelector('.icon-search');
+    var $buttonClose = document.querySelector('#search_mini_form .close');
+
+    $buttonOpen.addEventListener('click', function () {
+      $search.classList.add('is-active');
+    });
+
+    $buttonClose.addEventListener('click', function () {
+      console.log('coucou');
+      $search.classList.remove('is-active');
+    });
+  }
+
+  var $productCateg = document.querySelector('.product-category');
+  var $productCategFilter = document.querySelector('.product-category-aside');
+
+  if ($productCateg) {
+    var hProductCategFilter = $productCategFilter.offsetHeight;
+    $productCateg.style.minHeight = hProductCategFilter + 'px';
+
+    document.addEventListener('resize', function () {
+      var hProductCategFilter = $productCategFilter.offsetHeight;
+
+      $productCateg.style.minHeight = hProductCategFilter + 'px';
     });
   }
 })();
@@ -1743,8 +1773,6 @@ var Sticky = function (element, options) {
   if (this.$element) {
     this.stick();
   }
-
-  MediaQ();
 };
 
 Sticky.prototype.stick = function stick() {
@@ -1808,7 +1836,6 @@ module.exports = function homeSlider() {
 
   /*BACKGROUND*/
   var flkty = new Flickity(elem, {
-    asNavFor: title,
     freeScroll: false,
     contain: true,
     pageDots: false,

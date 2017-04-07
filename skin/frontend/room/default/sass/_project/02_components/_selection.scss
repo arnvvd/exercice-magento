@@ -2,8 +2,6 @@
   @extend .centered;
   max-width: 128rem;
 
-
-
   &-list{
     text-align: left;
 
@@ -24,7 +22,7 @@
       @include aspect-ratio(270, 440);
 
       .content{
-        background-size: 80% auto;
+        background-size: auto 200px;
       }
       
     }
