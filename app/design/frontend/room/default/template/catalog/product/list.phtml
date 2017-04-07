@@ -34,19 +34,66 @@
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
-?>
+    ?>
 
 
-<?php if(!$_productCollection->count()): ?>
+<?php if(!$_productCollection->count()):?>
+
+
+
+
+
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-    <div class="product-category-list">
-        <div class="product-selection-list-wrapper">
+
+    <?php
+    $categoryRoom = false;
+    $currentCategory = $this->getLayer()->getCurrentCategory()->getID();
+
+    if($currentCategory == 17){
+        $categoryRoom = true;
+    }
+    else{
+        $children = Mage::getModel('catalog/category')->load(17)->getChildrenCategories();
+        foreach ($children as $category) {
+            if($category->getId() == $currentCategory){
+                $categoryRoom = true;
+                break;
+            }else{
+                $categoryRoom = false;
+            }
+        }
+    }
+
+    if($categoryRoom){
+        ?>
+        <div class="room-category-list-wrapper">
             <?php echo $this->getToolbarHtml() ?>
-            <ul class="product-selection-list product-selection-list--mini">
+            <ul class="room-category-list">
                 <?php foreach ($_productCollection as $_product): ?>
-                <li>
-                    <a href="<?php echo $_product->getProductUrl(); ?>" class="content" style="background-image:url('<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(300)->setQuality(100); ?>')">
+                    <li>
+                        <a href="#" class="content" style="background-image:url('<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(1000)->setQuality(100); ?>')">
+      <span class="room-selection-header">
+        <h3 class="room-selection-title">Barroque</h3>
+        <p>Voir la collection</p>
+      </span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+        <?php
+    }
+    else{
+        ?>
+        <div class="product-category-list">
+            <div class="product-selection-list-wrapper">
+                <?php echo $this->getToolbarHtml() ?>
+                <ul class="product-selection-list product-selection-list--mini">
+                    <?php foreach ($_productCollection as $_product): ?>
+                        <li>
+                            <a href="<?php echo $_product->getProductUrl(); ?>" class="content" style="background-image:url('<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(300)->setQuality(100); ?>')">
                         <span class="product-selection-header">
                             <p class="product-selection-price">
                                 <?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?>
@@ -63,16 +110,20 @@
                                 </li>
                             </ul>
                         </span>
-                        <span class="product-selection-details">
+                                <span class="product-selection-details">
                             <h3 class="title-delta"><?php echo $this->stripTags($_product->getName(), null, true); ?></h3>
                             <p class="paragraph-delta"><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?></p>
                         </span>
-                    </a>
-                </li>
-                <?php endforeach; ?>
-            </ul>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
-    </div>
+        <?php
+    }
+    ?>
+
 
 <!--    <div class="toolbar-bottom">-->
 <!--        --><?php //echo $this->getToolbarHtml() ?>
