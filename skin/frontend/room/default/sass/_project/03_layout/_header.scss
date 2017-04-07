@@ -45,16 +45,19 @@
     }
   }
 
-
   /*TITLE CAROUSEL*/
   .title-carousel{
+    max-width: 45rem;
+    width: 100%;
+
     &-wrapper{
       position: absolute;
       width: 100%;
-      max-width: 45rem;
+      max-width: 128rem;
+      padding: 0 8rem;
       top: 50%;
-      left: 8rem;
-      transform: translateY(-50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-size: 4rem;
       color: white;
     }
@@ -90,7 +93,6 @@
       }
     }
   }
-
 
   // DESC CARROUSEL
   .desc-carousel{

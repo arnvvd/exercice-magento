@@ -30,7 +30,7 @@ $catalogSearchHelper =  $this->helper('catalogsearch');
 <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
     <div class="form-search">
         <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="input-text" maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>" />
-        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Search')) ?>" class="button"><span><span><?php echo $this->__('Search') ?></span></span></button>
+        <button type="submit" ?>" class="button"></button>
         <div id="search_autocomplete" class="search-autocomplete"></div>
         <script type="text/javascript">
         //<![CDATA[
@@ -39,5 +39,11 @@ $catalogSearchHelper =  $this->helper('catalogsearch');
         //]]>
         </script>
     </div>
-    <div class="close">Close</div>
+    <div class="close"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="la_piece_design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="la_piece_HOME" transform="translate(-656.000000, -304.000000)" fill="#FFFFFF">
+                    <polygon id="Page-1" points="674.977866 304.000083 665.999752 312.978816 657.022052 304.000083 656 305.022134 664.978733 314.000248 656 322.977948 657.022052 324 665.999752 315.0223 674.977866 324 675.999917 322.977948 667.022011 314.000248 675.999917 305.022134"></polygon>
+                </g>
+            </g>
+        </svg></div>
 </form>
