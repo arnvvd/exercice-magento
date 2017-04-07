@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -84,7 +84,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(11)
+      __webpack_require__(12)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
       return factory( window, matchesSelector );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -325,9 +325,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity main
       __webpack_require__(2),
       __webpack_require__(4),
       __webpack_require__(0),
-      __webpack_require__(15),
-      __webpack_require__(21),
-      __webpack_require__(14)
+      __webpack_require__(16),
+      __webpack_require__(22),
+      __webpack_require__(15)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Cell, Slide, animatePrototype ) {
       return factory( window, EvEmitter, getSize, utils, Cell, Slide, animatePrototype );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -1309,12 +1309,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
       __webpack_require__(1),
-      __webpack_require__(16),
-      __webpack_require__(20),
-      __webpack_require__(18),
+      __webpack_require__(17),
+      __webpack_require__(21),
       __webpack_require__(19),
-      __webpack_require__(13),
-      __webpack_require__(17)
+      __webpack_require__(20),
+      __webpack_require__(14),
+      __webpack_require__(18)
     ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -1573,7 +1573,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(24)
+      __webpack_require__(25)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
       return factory( window, Unipointer );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -1678,16 +1678,18 @@ return TapListener;
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var homeSlider = __webpack_require__(8);
-var pins = __webpack_require__(9);
-var productSlider = __webpack_require__(10);
+var homeSlider = __webpack_require__(9);
+var pins = __webpack_require__(10);
+var productSlider = __webpack_require__(11);
+var Sticky = __webpack_require__(8);
 
 //DOM READY
 (function () {
 
-  $home = document.querySelector('.cms-home');
-  $pins = document.querySelector('.room-interactive');
-  $product = document.querySelector('.product');
+  var $home = document.querySelector('.cms-home');
+  var $pins = document.querySelector('.room-interactive');
+  var $product = document.querySelector('.product');
+  var $productFilter = document.querySelector('.product-filter');
 
   if ($home) {
     homeSlider();
@@ -1700,6 +1702,18 @@ var productSlider = __webpack_require__(10);
   if ($product) {
     productSlider();
   }
+
+  if ($productFilter) {
+    var stick = document.querySelector('.product-category-aside');
+    var stickParent = document.querySelector('.product-category');
+
+    var sticky1 = new Sticky(stickParent, {
+      $element: stick,
+      stickedClass: 'is--sticked',
+      positionnedClass: 'is--positionned',
+      marginBottom: 0
+    });
+  }
 })();
 
 /***/ }),
@@ -1710,12 +1724,83 @@ var productSlider = __webpack_require__(10);
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+var Sticky = function (element, options) {
+
+  // Check if options object is empty
+  options || (options = {});
+
+  // Get options
+  this.$container = element; //Get container
+  this.$element = options.$element;
+  this.stickedClass = options.stickedClass;
+  this.positionnedClass = options.positionnedClass;
+  this.marginBottom = options.marginBottom;
+  this.cover = false || options.cover;
+
+  // Do method if $element isn't empty
+  if (this.$element) {
+    this.stick();
+  }
+
+  MediaQ();
+};
+
+Sticky.prototype.stick = function stick() {
+  self = this;
+
+  //Get datas
+  var parent = self.$container;
+  var stickyElement = self.$element;
+  var stickedClass = self.stickedClass;
+  var positionnedClass = self.positionnedClass;
+  var marginBottom = self.marginBottom;
+  var boolCover = self.cover;
+
+  window.addEventListener("scroll", function () {
+
+    // Get scrollTop of body
+    var doc = document.documentElement;
+    var windowPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+
+    // Prepare value
+    var parentOffset = parent.getBoundingClientRect();
+    var parentTopOffset = parentOffset.top + windowPos;
+
+    var hParent = parent.offsetHeight;
+    var hElement = stickyElement.offsetHeight;
+
+    if (boolCover) {
+      var maxOffset = hParent;
+    } else {
+      var maxOffset = hParent - hElement - marginBottom;
+    }
+    var realOffset = windowPos - parentTopOffset;
+
+    if (realOffset <= 0) {
+      stickyElement.classList.remove(stickedClass);
+      stickyElement.classList.remove(positionnedClass);
+    } else if (realOffset > 0 && realOffset < maxOffset) {
+      stickyElement.classList.add(stickedClass);
+      stickyElement.classList.remove(positionnedClass);
+    } else {
+      stickyElement.classList.remove(stickedClass);
+      stickyElement.classList.add(positionnedClass);
+    }
+  });
+};
+
+module.exports = Sticky;
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function homeSlider() {
 
   var Flickity = __webpack_require__(3);
-  var asNavFor = __webpack_require__(12);
+  var asNavFor = __webpack_require__(13);
   var indexArray = [];
 
   /*BACKGROUND*/
@@ -1772,7 +1857,7 @@ module.exports = function homeSlider() {
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = function pins() {
@@ -1821,7 +1906,7 @@ module.exports = function pins() {
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function productSlider() {
@@ -1858,7 +1943,7 @@ module.exports = function productSlider() {
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -1921,7 +2006,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2080,7 +2165,7 @@ return Flickity;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// add, remove cell
@@ -2269,7 +2354,7 @@ return Flickity;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// animate
@@ -2495,7 +2580,7 @@ return proto;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Flickity.Cell
@@ -2592,7 +2677,7 @@ return Cell;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
@@ -2603,7 +2688,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// drag
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
       __webpack_require__(1),
-      __webpack_require__(23),
+      __webpack_require__(24),
       __webpack_require__(0)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Flickity, Unidragger, utils ) {
       return factory( window, Flickity, Unidragger, utils );
@@ -2983,7 +3068,7 @@ return Flickity;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// lazyload
@@ -3109,7 +3194,7 @@ return Flickity;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// page dots
@@ -3294,7 +3379,7 @@ return Flickity;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// player & autoPlay
@@ -3514,7 +3599,7 @@ return Flickity;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// prev/next buttons
@@ -3741,7 +3826,7 @@ return Flickity;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// slide
@@ -3827,7 +3912,7 @@ return Slide;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4137,7 +4222,7 @@ return Unipointer;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4155,7 +4240,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(22)
+      __webpack_require__(23)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function( Unipointer ) {
       return factory( window, Unipointer );
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -4428,7 +4513,7 @@ return Unidragger;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4730,7 +4815,7 @@ return Unipointer;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);

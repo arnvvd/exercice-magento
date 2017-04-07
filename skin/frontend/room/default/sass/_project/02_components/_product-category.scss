@@ -1,0 +1,141 @@
+.category{
+	padding-top: 7rem;
+	text-align: center;
+
+	.paragraph-beta{	
+		display: block;
+		margin: 0 auto;
+		max-width:77rem;
+		color: $clear-color;
+		padding-bottom: 6.5rem;
+	}
+}
+
+.product-category{
+	position: relative;
+	max-width: 117rem;
+	display: block;
+	margin: 0 auto;
+	text-align: left;
+	color: #000;
+	height: 100%;
+
+	&-aside{
+		position: absolute;
+		left:50%;
+		top: 0;
+		width: 100%;
+		max-width: 125rem;
+		transform: translateX(-50%);
+
+		&.is--positionned{
+			position: absolute;
+			bottom: 0;
+			top: inherit;
+		}
+
+		&.is--sticked{
+			position: fixed;
+			padding: 0 4rem;
+		}
+
+		&-content{
+			position: relative;
+			width: 25%;
+			padding-right: 1.5rem;
+			z-index: 2;
+		}
+	}
+
+	&-list{
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		@include no-inline-block-margin();
+		padding-left: 25%;
+	}
+}
+
+.product-filter{
+
+	@include font-style ($font-regular, 1.6rem, 400, normal, 1);
+
+
+	button{
+		@include font-style ($font-regular, 1.6rem, 400, normal, 1);
+	}
+
+	&-title{
+		padding: 3rem 0;
+		text-transform: uppercase;
+	}
+
+	&-type,
+	&-colors,
+	&-price,
+	&-dimensions,
+	&-style
+	{
+		position: relative;
+		padding-bottom: 1rem;
+		&:after{
+			content:'';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #000;
+		}
+	}
+
+	&-type{
+		margin-top: 1.5rem;
+	}
+
+	&-colors{
+		li{
+			display: inline-block;
+			vertical-align: top;
+			width: 3.6rem;
+			height: 3.6rem;
+			border-radius: 50%;
+			margin-right: 2rem;
+			margin-bottom: 2rem;
+			overflow: hidden;
+
+			button{
+				display: block;
+				width: 3.6rem;
+				height: 3.6rem;
+			}
+		}
+	}
+
+	li{
+		li{
+			padding-bottom: 2rem;
+		}
+	}
+}
+
+.product-toolbar{
+	text-align: left;
+
+	li{
+		display: inline-block;
+		@include font-style ($font-regular, 1.2rem, 400, normal, 1);
+		padding: 0 .5rem;
+
+		&:first-child{
+			content: "";
+			border-right: .1rem solid black;
+			padding-left: 1.4rem;
+		}
+
+		select{
+			background: none;
+			border: none;
+		}
+	}
+}

@@ -1,13 +1,17 @@
 var homeSlider = require('./modules/homeSlider.js');
 var pins = require('./modules/pins.js');
 var productSlider =  require('./modules/productSlider.js');
+var Sticky =  require('./modules/Stikcy.js');
+
 
 //DOM READY
 (function(){
 
-  $home=  document.querySelector('.cms-home');
-  $pins =  document.querySelector('.room-interactive');
-  $product=  document.querySelector('.product');
+  var $home=  document.querySelector('.cms-home');
+  var $pins =  document.querySelector('.room-interactive');
+  var $product=  document.querySelector('.product');
+  var $productFilter = document.querySelector('.product-filter');
+
 
 
   if($home){
@@ -20,6 +24,18 @@ var productSlider =  require('./modules/productSlider.js');
 
   if($product){
   	productSlider();
+  }
+
+  if($productFilter){
+      var stick = document.querySelector('.product-category-aside');
+      var stickParent = document.querySelector('.product-category');
+
+      var sticky1 = new Sticky(stickParent, {
+        $element : stick,
+        stickedClass : 'is--sticked',
+        positionnedClass : 'is--positionned',
+        marginBottom: 0
+      });
   }
 
 })();

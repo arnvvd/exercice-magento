@@ -1,12 +1,24 @@
 .product-selection{
+  @extend .centered;
+  max-width: 128rem;
+
+
+
   &-list{
+    text-align: left;
+
+    &-wrapper{
+      text-align: center;
+    }
+
     >li{
+      text-align: center;
       position: relative;
       display: inline-block;
       width: 25%;
       vertical-align: top;
       border: solid 1.5rem #FFF;
-      background-color: $gray-color;
+      background-color: #F0F0F0;
       overflow: hidden;
       @include no-inline-block-margin();
       @include aspect-ratio(270, 440);
@@ -14,14 +26,25 @@
       .content{
         background-size: 80% auto;
       }
+      
+    }
 
-      &:nth-child(6n+3),
-      &:nth-child(6n+4){
-        width: 50%;
-        background-color: $gray-color;
-        @include aspect-ratio(570, 440);
-        .content{
-          background-size: auto 60%;
+    &--mini{
+      >li{
+       width: 33.33%;
+      }
+    }
+
+    &--alt{
+      >li{
+        &:nth-child(6n+3),
+        &:nth-child(6n+4){
+          width: 50%;
+          background-color: #F0F0F0;
+          @include aspect-ratio(570, 440);
+          .content{
+            background-size: auto 60%;
+          }
         }
       }
     }
@@ -62,12 +85,9 @@
       pointer-events: auto;
       @include no-inline-block-margin();
     }
-    a{
+    i{
+      font-size: 1.6rem;
       padding: 0 .5rem;
-
-      i{
-        font-size: 2rem;
-      }
     }
   }
 

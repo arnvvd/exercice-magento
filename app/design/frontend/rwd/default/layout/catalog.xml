@@ -119,6 +119,7 @@ Category layered navigation layout
                 <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
             </block>
         </reference>
+
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
