@@ -227,7 +227,7 @@ $_productSimular = Mage::getModel('catalog/category')
                     <a href="<?php echo $_product->getProductUrl()?>" class="content" style="background-image:url('<?php echo (string)Mage::helper('catalog/image')->init($_product, 'image');?>')">
             <span class="room-selection-header">
               <h3 class="room-selection-title">
-                  <?php echo Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getCategoryIds()[0])->getName();?>
+                  <?php echo Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getCategoryIds()[1])->getName();?>
               </h3>
               <p>Voir la collection</p>
             </span>
