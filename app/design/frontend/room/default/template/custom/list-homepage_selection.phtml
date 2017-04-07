@@ -7,7 +7,7 @@ $_productCollection = Mage::getModel("catalog/product")
     ->setPageSize(5);
 ?>
 <?php $count = 0?>
-<ul class="product-selection-list">
+<ul class="product-selection-list product-selection-list--alt">
     <?php foreach ($_productCollection as $_product): ?>
         <?php if($count == 1){ ?>
             <li>
