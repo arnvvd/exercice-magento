@@ -23,14 +23,15 @@ Before you really begin, you'll need to configure your database connection infor
 </connection>
 ```
 ### and then...
-- Import the `./magento.sql` in your Phpmyadmin   
+- Create database `magento`
+- Import the `./magentoFinish.sql` in your Phpmyadmin   
 - Change in the databases in the `magev1_core_config_data` table the lines `web/unsecure/base_url` and `web/secure/base_url`
 - Launch webpack [(view section)](#webpack)
 
 ## About Server
 ADDRESS ID: 5.44.25.230  
 USER: root  
-MDP: poneyponey
+MDP: hellomoto
 
 ### SSH Access
 ```bash
